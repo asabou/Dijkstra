@@ -3,11 +3,12 @@
 #include <vector>
 #include <queue>
 #include <stack>
-#include <cassert>
+#include <chrono>
 
 #define MAX 1000
 
 using namespace std;
+using namespace std::chrono;
 
 int n, m; //no of nodes and edges
 int source, destination; 
@@ -82,6 +83,7 @@ void dijkstra() {
 			}
 		}
 	}
+	G->clear();
 }
 
 /*print the array of "fathers" just to check if the algorithm works*/
@@ -125,13 +127,41 @@ void printToFile(const string& filename) {
 	g.close();
 }
 
-void startDijkstra() {
-	readData("input.txt");
+void printToTimeFile(long microseconds) {
+	ofstream g("time.csv", std::ios_base::app);
+	g << n << "," << m << "," <<source<<","<<destination<<","<< microseconds << endl;
+	g.close();
+}
+
+void runDijkstraEasy() {
+	readData("easy_input.txt");
 	printData();
+	auto start = high_resolution_clock::now();
 	dijkstra();
-	printFathers();
+	auto end = high_resolution_clock::now();
+	auto time = duration_cast<microseconds>(end - start);
 	printDist();
-	printToFile("output.txt");
+	printFathers();
+	printToTimeFile(time.count());
+	printToFile("easy_output.txt");
+}
+
+void runDijkstraHard() {
+	readData("hard_input.txt");
+	printData();
+	auto start = high_resolution_clock::now();
+	dijkstra();
+	auto end = high_resolution_clock::now();
+	auto time = duration_cast<microseconds>(end - start);
+	printDist();
+	printFathers();
+	printToTimeFile(time.count());
+	printToFile("hard_output.txt");
+}
+
+void startDijkstra() {
+	runDijkstraEasy();
+	runDijkstraHard();
 }
 
 int main() {

@@ -20,10 +20,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt">
+    <Text Include="easy_input.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="output.txt">
+    <Text Include="hard_input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="time.csv">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="easy_output.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="hard_output.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

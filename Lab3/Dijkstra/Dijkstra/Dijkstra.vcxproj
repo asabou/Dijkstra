@@ -141,8 +141,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="output.txt" />
+    <Text Include="easy_input.txt" />
+    <Text Include="easy_output.txt" />
+    <Text Include="hard_input.txt" />
+    <Text Include="hard_output.txt" />
+    <Text Include="time.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
