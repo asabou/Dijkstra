@@ -4,8 +4,9 @@
 #include <queue>
 #include <stack>
 #include <chrono>
+#include <cassert>
 
-#define MAX 1000
+#define MAX 10000
 
 using namespace std;
 using namespace std::chrono;
@@ -108,7 +109,7 @@ the path from source to destination
 void printToFile(const string& filename) {
 	ofstream g(filename);
 	if (dist[destination] == MAX) {
-		g << "There is no path between source and destination";
+		g << "There is no path between source: "<<source<<" and destination: "<<destination;
 	}
 	else {
 		g << dist[destination] << endl;
@@ -133,36 +134,93 @@ void printToTimeFile(long microseconds) {
 	g.close();
 }
 
-void runDijkstraEasy() {
-	readData("easy_input.txt");
+/*test dijkstra when there is a path between source and destination*/
+void runDijkstraEasy1() {
+	readData("test_easy_input1.txt");
 	printData();
 	auto start = high_resolution_clock::now();
 	dijkstra();
 	auto end = high_resolution_clock::now();
 	auto time = duration_cast<microseconds>(end - start);
+	/*test the distance*/
+	assert(dist[destination] == 9);
+	assert(p[destination] == 2);
+	/*test the array of "fathers"*/
+	assert(p[source] == -1);
+	assert(p[5] == 1);
+	assert(p[2] == 5);
 	printDist();
 	printFathers();
 	printToTimeFile(time.count());
-	printToFile("easy_output.txt");
+	printToFile("test_easy_output1.txt");
 }
 
-void runDijkstraHard() {
-	readData("hard_input.txt");
+/*test dijkstra when there is no path between source and destination*/
+void runDijkstraEasy2() {
+	readData("test_easy_input2.txt");
 	printData();
 	auto start = high_resolution_clock::now();
 	dijkstra();
 	auto end = high_resolution_clock::now();
 	auto time = duration_cast<microseconds>(end - start);
+	/*test the distance*/
+	assert(dist[destination] == MAX);
+	assert(dist[2] == MAX);
+	assert(dist[4] == 4);
+	/*test the array of "fathers"*/
+	assert(p[4] == 3);
+	assert(p[destination] == -1);
+	assert(p[1] == -1);
 	printDist();
 	printFathers();
 	printToTimeFile(time.count());
-	printToFile("hard_output.txt");
+	printToFile("test_easy_output2.txt");
 }
+
+/*test dijkstra when there is a path between source and destination*/
+void runDijkstraHard1() {
+	readData("test_hard_input1.txt");
+	printData();
+	auto start = high_resolution_clock::now();
+	dijkstra();
+	auto end = high_resolution_clock::now();
+	auto time = duration_cast<microseconds>(end - start);
+	/*test the dist*/
+	assert(dist[destination] == 1147);
+	/*test the vector of "fathers"*/
+	assert(p[source] == -1);
+	assert(p[9] == 1);
+	assert(p[destination] == 246);
+	printDist();
+	printFathers();
+	printToTimeFile(time.count());
+	printToFile("test_hard_output1.txt");
+}
+
+/*test dijkstra when there is no path between source and destination*/
+void runDijkstraHard2() {
+	readData("test_hard_input2.txt");
+	printData();
+	auto start = high_resolution_clock::now();
+	dijkstra();
+	auto end = high_resolution_clock::now();
+	auto time = duration_cast<microseconds>(end - start);
+	assert(dist[destination] == MAX);
+	assert(dist[297] == MAX);
+	printDist();
+	printFathers();
+	printToTimeFile(time.count());
+	printToFile("test_hard_output2.txt");
+}
+
 
 void startDijkstra() {
-	runDijkstraEasy();
-	runDijkstraHard();
+	runDijkstraEasy1();
+	runDijkstraEasy2();
+	runDijkstraHard1();
+	runDijkstraHard2();
 }
+
 
 int main() {
 	startDijkstra();

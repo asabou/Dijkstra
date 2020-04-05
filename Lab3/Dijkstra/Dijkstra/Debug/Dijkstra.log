@@ -1,10 +1,20 @@
 ﻿  main.cpp
-C:\Users\alexandru.sabou\university\An3\Sem2\PTPP\Lab3\Dijkstra\Dijkstra\main.cpp(145,28): warning C4244: 'argument': conversion from '_Rep' to 'long', possible loss of data
+C:\Users\alexandru.sabou\university\An3\Sem2\PTPP\Lab3\Dijkstra\Dijkstra\main.cpp(154,28): warning C4244: 'argument': conversion from '_Rep' to 'long', possible loss of data
           with
           [
               _Rep=__int64
           ]
-C:\Users\alexandru.sabou\university\An3\Sem2\PTPP\Lab3\Dijkstra\Dijkstra\main.cpp(158,28): warning C4244: 'argument': conversion from '_Rep' to 'long', possible loss of data
+C:\Users\alexandru.sabou\university\An3\Sem2\PTPP\Lab3\Dijkstra\Dijkstra\main.cpp(176,28): warning C4244: 'argument': conversion from '_Rep' to 'long', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+C:\Users\alexandru.sabou\university\An3\Sem2\PTPP\Lab3\Dijkstra\Dijkstra\main.cpp(196,28): warning C4244: 'argument': conversion from '_Rep' to 'long', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+C:\Users\alexandru.sabou\university\An3\Sem2\PTPP\Lab3\Dijkstra\Dijkstra\main.cpp(213,28): warning C4244: 'argument': conversion from '_Rep' to 'long', possible loss of data
           with
           [
               _Rep=__int64

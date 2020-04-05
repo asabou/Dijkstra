@@ -141,10 +141,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="easy_input.txt" />
-    <Text Include="easy_output.txt" />
-    <Text Include="hard_input.txt" />
-    <Text Include="hard_output.txt" />
+    <Text Include="test_easy_output1.txt" />
+    <Text Include="test_easy_output2.txt" />
+    <Text Include="test_hard_input1.txt" />
+    <Text Include="test_hard_input2.txt" />
+    <Text Include="test_easy_input1.txt" />
+    <Text Include="test_easy_input2.txt" />
+    <Text Include="test_hard_output1.txt" />
+    <Text Include="test_hard_output2.txt" />
     <Text Include="time.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
