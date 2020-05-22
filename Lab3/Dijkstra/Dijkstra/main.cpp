@@ -32,7 +32,7 @@ struct Node {
 
 vector<Node>G[MAX]; //adjacency
 
-/*read data from the given file as parameter and populate de adjacency*/
+/*read data from the given file as parameter and populate the adjacency*/
 void readData(const string& filename) {
 	ifstream f(filename);
 	f >> n >> m;
@@ -204,21 +204,24 @@ void runDijkstraHard2() {
 	auto start = high_resolution_clock::now();
 	dijkstra();
 	auto end = high_resolution_clock::now();
-	auto time = duration_cast<microseconds>(end - start);
 	assert(dist[destination] == MAX);
 	assert(dist[297] == MAX);
 	printDist();
 	printFathers();
-	printToTimeFile(time.count());
+	
 	printToFile("test_hard_output2.txt");
 }
 
 
 void startDijkstra() {
+	auto start = high_resolution_clock::now();
 	runDijkstraEasy1();
-	runDijkstraEasy2();
-	runDijkstraHard1();
-	runDijkstraHard2();
+	auto end = high_resolution_clock::now();
+	auto time = duration_cast<microseconds>(end - start);
+	printToTimeFile(time.count());
+	//runDijkstraEasy2();
+	//runDijkstraHard1();
+	//runDijkstraHard2();
 }
 
 
